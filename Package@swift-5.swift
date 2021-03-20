@@ -7,8 +7,8 @@ let package = Package(
     .library(name: "Stencil", targets: ["Stencil"])
   ],
   dependencies: [
-    .package(url: "https://github.com/kylef/PathKit.git", from: "1.0.0"),
-    .package(url: "https://github.com/kylef/Spectre.git", from: "0.9.0")
+    .package(url: "https://github.com/HeMet/PathKit.git", .branch("win-support")),
+    .package(url: "https://github.com/HeMet/Spectre.git", .branch("win-support"))
   ],
   targets: [
     .target(name: "Stencil", dependencies: [
