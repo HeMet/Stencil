@@ -6,7 +6,7 @@
         "repositoryURL": "https://github.com/HeMet/PathKit.git",
         "state": {
           "branch": "win-support",
-          "revision": "976f3e59fcc4a677177d658101ae1d35e2a40fb9",
+          "revision": "e9276b544e58b47f4c263a37aac0a808464aa51c",
           "version": null
         }
       },
@@ -15,7 +15,7 @@
         "repositoryURL": "https://github.com/HeMet/Spectre.git",
         "state": {
           "branch": "win-support",
-          "revision": "32d492769bd4949c5a6ecc8bdc2c96bf1d02bd10",
+          "revision": "f0a197e17236de6bbba14c7031a80ea69d615ad5",
           "version": null
         }
       }
