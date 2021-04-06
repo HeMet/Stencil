@@ -146,10 +146,10 @@ public struct Variable: Equatable, Resolvable {
   
   private var isKeyValueCodingSupported: Bool {
     #if os(Linux) || os(Windows) 
-	return false
-	#else
-	return true
-	#endif
+    return false
+    #else
+    return true
+    #endif
   }
 }
 
