@@ -219,6 +219,23 @@ final class VariableTests: XCTestCase {
     }
   }
 
+  func testStringArray() {
+    it("renders both [String] and [NSString] in the same way") {
+      let stringArray: [Any?] = ["a", "b"]
+      let nsStringArray: [Any?] = ["a" as NSString, "b" as NSString]
+
+      let context = Context(dictionary: [
+        "strings": stringArray,
+        "nsStrings": nsStringArray
+      ])
+
+      let renderedStrings = try VariableNode(variable: "strings").render(context)
+      let nsRenderedStrings = try VariableNode(variable: "nsStrings").render(context)
+      try expect(renderedStrings) == "[\"a\", \"b\"]"
+      try expect(renderedStrings) == nsRenderedStrings
+    }
+  }
+
   func testSubscripting() {
     it("can resolve a property subscript via reflection") {
       try self.context.push(dictionary: ["property": "name"]) {

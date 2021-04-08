@@ -126,7 +126,12 @@ func stringify(_ result: Any?) -> String {
   if let result = result as? String {
     return result
   } else if let array = result as? [Any?] {
-    return unwrap(array).description
+    let unwrapped = unwrap(array)
+    // potentially cast [NSString] to [String]
+    if let stringArray = unwrapped as? [String] {
+      return stringArray.description
+    }
+    return unwrapped.description
   } else if let result = result as? CustomStringConvertible {
     return result.description
   } else if let result = result as? NSObject {

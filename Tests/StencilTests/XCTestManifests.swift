@@ -192,6 +192,7 @@ extension VariableTests {
         ("testLiterals", testLiterals),
         ("testMultipleSubscripting", testMultipleSubscripting),
         ("testOptional", testOptional),
+        ("testStringArray", testStringArray),
         ("testRangeVariable", testRangeVariable),
         ("testReflection", testReflection),
         ("testSubscripting", testSubscripting),
