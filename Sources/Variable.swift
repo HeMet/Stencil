@@ -219,6 +219,11 @@ extension Array: Normalizable {
 
 extension NSArray: Normalizable {
   func normalize() -> Any? {
+    // avoid conversion from NSArray<NSString> to [String]
+    // since these types have different description
+    if let array = self as? [NSString] {
+      return array
+    }
     return map { $0 as Any }
   }
 }

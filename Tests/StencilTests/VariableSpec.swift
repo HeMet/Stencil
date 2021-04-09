@@ -220,19 +220,28 @@ final class VariableTests: XCTestCase {
   }
 
   func testStringArray() {
-    it("renders both [String] and [NSString] in the same way") {
-      let stringArray: [Any?] = ["a", "b"]
-      let nsStringArray: [Any?] = ["a" as NSString, "b" as NSString]
-
+    it("renders [String] with quotes") {
       let context = Context(dictionary: [
-        "strings": stringArray,
-        "nsStrings": nsStringArray
+        "strings": ["a", "b"]
       ])
 
-      let renderedStrings = try VariableNode(variable: "strings").render(context)
-      let nsRenderedStrings = try VariableNode(variable: "nsStrings").render(context)
-      try expect(renderedStrings) == "[\"a\", \"b\"]"
-      try expect(renderedStrings) == nsRenderedStrings
+      try expect(VariableNode(variable: "strings").render(context)) == "[\"a\", \"b\"]"
+    }
+
+    it("renders [NSString] without quotes") {
+      let context = Context(dictionary: [
+        "strings": ["a" as NSString, "b" as NSString]
+      ])
+
+      try expect(VariableNode(variable: "strings").render(context)) == "[a, b]"
+    }
+
+    it("renders NSArray<NSString> as [NSString]") {
+      let context = Context(dictionary: [
+        "nsStrings": ["a" as NSString, "b" as NSString] as NSArray
+      ])
+
+      try expect(VariableNode(variable: "nsStrings").render(context)) == "[a, b]"
     }
   }
 
