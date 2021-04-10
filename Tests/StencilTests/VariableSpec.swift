@@ -243,6 +243,14 @@ final class VariableTests: XCTestCase {
 
       try expect(VariableNode(variable: "nsStrings").render(context)) == "[a, b]"
     }
+
+    it("renders NSArray<String> as [NSString]") {
+      let context = Context(dictionary: [
+        "strings": ["a", "b"] as NSArray
+      ])
+
+      try expect(VariableNode(variable: "strings").render(context)) == "[a, b]"
+    }
   }
 
   func testSubscripting() {
